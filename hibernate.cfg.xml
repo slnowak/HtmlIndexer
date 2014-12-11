@@ -6,13 +6,11 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/htmlindexer</property>
-        <property name="connection.username">hibernate</property>
-        <property name="connection.password">hibernate</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="connection.url">jdbc:hsqldb:file:{mem}:html_indexer</property>
 
         <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
 
         <!-- Drop and re-create the database schema at startup -->
         <property name="hbm2ddl.auto">create</property>
