@@ -103,7 +103,7 @@ public class Index {
 
     public Collection<Sentence> findSentencesLongerThan(int length) {
         final String query = "select s from Sentence s join s.wordSentences as ws join ws.word as w " +
-                "group by s having sum(length(w.content)) > :length";
+                "group by s having sum(ws.occurrence * length(w.content)) > :length";
 
         Collection<Sentence> result = session.createQuery(query)
                 .setParameter("length", Long.valueOf(length))
