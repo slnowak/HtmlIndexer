@@ -16,7 +16,7 @@ public class HtmlIndexerApp {
         HibernateUtils.getSession().close();
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        Index indexer = new Index();
+        Index indexer = new Index(HibernateUtils.getSession(), new SentenceSplitter());
 
         while (true) {
             System.out.println("\nHtmlIndexer [? for help] > : ");
@@ -50,7 +50,7 @@ public class HtmlIndexerApp {
                 }
             } else if (command.startsWith("l ")) {
                 final int length = Integer.parseInt(command.substring(2));
-                for (Sentence sentence: indexer.findWordsLongerThan(length)) {
+                for (Sentence sentence: indexer.findSentencesLongerThan(length)) {
                     System.out.println("Sentence with length longer than " + length + ": " + sentence);
                 }
             } else if (command.startsWith("fu ")) {

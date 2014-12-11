@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="pl.edu.agh.ki.bd.htmlIndexer.model">
+
+    <class name="WordSentence">
+
+        <composite-id name="wordSentenceId" class="WordSentenceId">
+            <key-property column="word_id" name="wordContent" type="string"/>
+            <key-property column="sentence_id" name="sentenceId" type="long"/>
+        </composite-id>
+
+        <many-to-one name="word" class="Word" insert="false" update="false">
+            <column name="word_id" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="sentence" class="Sentence" insert="false" update="false">
+            <column name="sentence_id" not-null="true" />
+        </many-to-one>
+
+        <property name="occurrence" type="int"/>
+
+
+    </class>
+
+</hibernate-mapping>
+
+
+

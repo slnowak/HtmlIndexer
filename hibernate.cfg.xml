@@ -12,14 +12,16 @@
         <property name="connection.password">hibernate</property>
 
         <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema at startup -->
         <property name="hbm2ddl.auto">create</property>
 
         <!-- Mappings -->
         <mapping resource="pl/edu/agh/ki/bd/htmlIndexer/model/Sentence.hbm.xml"/>
-        <mapping resource="pl/edu/agh/ki/bd/htmlIndexer/model/PrcessedUrl.hbm.xml"/>
+        <mapping resource="pl/edu/agh/ki/bd/htmlIndexer/model/ProcessedUrl.hbm.xml"/>
+        <mapping resource="pl/edu/agh/ki/bd/htmlIndexer/model/Word.hbm.xml"/>
+        <mapping resource="pl/edu/agh/ki/bd/htmlIndexer/model/WordSentence.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

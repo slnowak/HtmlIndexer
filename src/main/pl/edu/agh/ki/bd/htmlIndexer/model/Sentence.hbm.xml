@@ -9,7 +9,14 @@
         <id name="id">
             <generator class="native"/>
         </id>
-        <property name="content" type="text"/>
+
+        <list name="wordSentences" inverse="true"
+              cascade="save-update">
+            <key column="sentence_id"/>
+            <index column="sentence_index"/>
+            <one-to-many class="WordSentence"/>
+        </list>
+
         <many-to-one name="url" class="ProcessedUrl" cascade="all" lazy="false">
             <column name="processed_url_id" not-null="true"/>
         </many-to-one>
